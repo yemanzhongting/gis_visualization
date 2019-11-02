@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="http://js.arcgis.com/3.14/init.js"></script>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.14/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="css/app.css">
+<!--    <link rel="stylesheet"-->
+<!--          href="http://js.arcgis.com/4.10/esri/themes/light/main.css">-->
+<!--    <script src="http://js.arcgis.com/4.10/dojo/dojo.js"></script>-->
+    <!--[if !IE]> -->
+    <link rel="stylesheet" href="css/fileupload.css">
+    <!-- <![endif]-->
+    <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+
+    <script>
+        var rainParams = {
+            "features": [{
+                "attributes": {
+                    "OBJECTID": 0,
+                    "STCD": "350111020002",
+                    "STNM": "茶园",
+                    "LGTD": 119.306109291,
+                    "LTTD": 26.1102828664,
+                    "TOTALNUM": 20
+                },
+                "geometry": {
+                    "x": 119.306109291,
+                    "y": 26.1102828664
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 1,
+                    "STCD": "350105020028",
+                    "STNM": "芹石村",
+                    "LGTD": 119.257226716,
+                    "LTTD": 26.2719617217,
+                    "TOTALNUM": 50
+                },
+                "geometry": {
+                    "x": 119.257226716,
+                    "y": 26.2719617217
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 2,
+                    "STCD": "350105020023",
+                    "STNM": "增楼村",
+                    "LGTD": 119.412226931,
+                    "LTTD": 26.1713940463,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.412226931,
+                    "y": 26.1713940463
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 3,
+                    "STCD": "350102020001",
+                    "STNM": "小柳新村",
+                    "LGTD": 119.279995563,
+                    "LTTD": 26.080005673,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.279995563,
+                    "y": 26.080005673
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 4,
+                    "STCD": "350102020002",
+                    "STNM": "软件园",
+                    "LGTD": 119.264995941,
+                    "LTTD": 26.1144520263,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.264995941,
+                    "y": 26.1144520263
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 5,
+                    "STCD": "350102020003",
+                    "STNM": "北江滨公园",
+                    "LGTD": 119.269994465,
+                    "LTTD": 26.0650040703,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.269994465,
+                    "y": 26.0650040703
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 6,
+                    "STCD": "350102020004",
+                    "STNM": "省实验小学",
+                    "LGTD": 119.299441356,
+                    "LTTD": 26.0902829192,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.299441356,
+                    "y": 26.0902829192
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 7,
+                    "STCD": "350102020005",
+                    "STNM": "军门社区",
+                    "LGTD": 119.29721882,
+                    "LTTD": 26.0858384629,
+                    "TOTALNUM": 25
+                },
+                "geometry": {
+                    "x": 119.29721882,
+                    "y": 26.0858384629
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 8,
+                    "STCD": "350103020001",
+                    "STNM": "魁岐排涝站",
+                    "LGTD": 119.362498404,
+                    "LTTD": 26.0438911367,
+                    "TOTALNUM": 2
+                },
+                "geometry": {
+                    "x": 119.362498404,
+                    "y": 26.0438911367
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 9,
+                    "STCD": "350103020002",
+                    "STNM": "市体育中心",
+                    "LGTD": 119.316663839,
+                    "LTTD": 26.0694492328,
+                    "TOTALNUM": 50
+                },
+                "geometry": {
+                    "x": 119.316663839,
+                    "y": 26.0694492328
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 10,
+                    "STCD": "350103020003",
+                    "STNM": "后洲街道",
+                    "LGTD": 119.310274095,
+                    "LTTD": 26.05444796,
+                    "TOTALNUM": 50
+                },
+                "geometry": {
+                    "x": 119.310274095,
+                    "y": 26.05444796
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 11,
+                    "STCD": "350104020001",
+                    "STNM": "海峡奥体中心",
+                    "LGTD": 119.276104931,
+                    "LTTD": 26.0247256635,
+                    "TOTALNUM": 100
+                },
+                "geometry": {
+                    "x": 119.276104931,
+                    "y": 26.0247256635
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 12,
+                    "STCD": "350104020002",
+                    "STNM": "城门镇",
+                    "LGTD": 119.379442286,
+                    "LTTD": 25.9816646043,
+                    "TOTALNUM": 100
+                },
+                "geometry": {
+                    "x": 119.379442286,
+                    "y": 25.9816646043
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 13,
+                    "STCD": "350104020003",
+                    "STNM": "师大附中",
+                    "LGTD": 119.307773648,
+                    "LTTD": 26.0441694984,
+                    "TOTALNUM": 100
+                },
+                "geometry": {
+                    "x": 119.307773648,
+                    "y": 26.0441694984
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 14,
+                    "STCD": "350104020004",
+                    "STNM": "南江滨公园",
+                    "LGTD": 119.261105061,
+                    "LTTD": 26.0641710909,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.261105061,
+                    "y": 26.0641710909
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 15,
+                    "STCD": "350104020006",
+                    "STNM": "天福水闸",
+                    "LGTD": 119.357496804,
+                    "LTTD": 25.9816665939,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.357496804,
+                    "y": 25.9816665939
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 16,
+                    "STCD": "350104020008",
+                    "STNM": "海峡会展中心",
+                    "LGTD": 119.353608949,
+                    "LTTD": 26.0350024232,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.353608949,
+                    "y": 26.0350024232
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 17,
+                    "STCD": "350104020009",
+                    "STNM": "洋尾村",
+                    "LGTD": 119.413054588,
+                    "LTTD": 25.9752765352,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.413054588,
+                    "y": 25.9752765352
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 18,
+                    "STCD": "350104020010",
+                    "STNM": "仓山镇",
+                    "LGTD": 119.309718213,
+                    "LTTD": 26.0372257588,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.309718213,
+                    "y": 26.0372257588
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 19,
+                    "STCD": "350104020011",
+                    "STNM": "左海学校",
+                    "LGTD": 119.241660384,
+                    "LTTD": 26.0841724334,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.241660384,
+                    "y": 26.0841724334
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 20,
+                    "STCD": "350104020012",
+                    "STNM": "外贸学院",
+                    "LGTD": 119.368330905,
+                    "LTTD": 25.9997218018,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.368330905,
+                    "y": 25.9997218018
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 21,
+                    "STCD": "350104020013",
+                    "STNM": "高盖山",
+                    "LGTD": 119.308606846,
+                    "LTTD": 26.0225029801,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.308606846,
+                    "y": 26.0225029801
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 22,
+                    "STCD": "350104020015",
+                    "STNM": "农科院",
+                    "LGTD": 119.309439589,
+                    "LTTD": 25.9975020378,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.309439589,
+                    "y": 25.9975020378
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 23,
+                    "STCD": "350104020017",
+                    "STNM": "种子站",
+                    "LGTD": 119.275271121,
+                    "LTTD": 26.0000018051,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.275271121,
+                    "y": 26.0000018051
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 24,
+                    "STCD": "350104020018",
+                    "STNM": "盖山镇",
+                    "LGTD": 119.339163773,
+                    "LTTD": 26.0222228739,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.339163773,
+                    "y": 26.0222228739
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 25,
+                    "STCD": "350105020001",
+                    "STNM": "琅岐芦沙排涝站",
+                    "LGTD": 119.548059521,
+                    "LTTD": 26.0844428891,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.548059521,
+                    "y": 26.0844428891
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 26,
+                    "STCD": "350105020002",
+                    "STNM": "亭江浩溪水库",
+                    "LGTD": 119.512225989,
+                    "LTTD": 26.0899995192,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.512225989,
+                    "y": 26.0899995192
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 27,
+                    "STCD": "350105020004",
+                    "STNM": "红光村",
+                    "LGTD": 119.580004251,
+                    "LTTD": 26.0880531144,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.580004251,
+                    "y": 26.0880531144
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 28,
+                    "STCD": "350105020005",
+                    "STNM": "亭江镇",
+                    "LGTD": 119.508058764,
+                    "LTTD": 26.0716671915,
+                    "TOTALNUM": 80
+                },
+                "geometry": {
+                    "x": 119.508058764,
+                    "y": 26.0716671915
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 29,
+                    "STCD": "350105020006",
+                    "STNM": "快安村",
+                    "LGTD": 119.411110849,
+                    "LTTD": 26.0325002443,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.411110849,
+                    "y": 26.0325002443
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 30,
+                    "STCD": "350105020007",
+                    "STNM": "罗星街道",
+                    "LGTD": 119.450555615,
+                    "LTTD": 25.9927764861,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.450555615,
+                    "y": 25.9927764861
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 31,
+                    "STCD": "350105020008",
+                    "STNM": "双峰村",
+                    "LGTD": 119.480556901,
+                    "LTTD": 26.018332044,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.480556901,
+                    "y": 26.018332044
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 32,
+                    "STCD": "350105020010",
+                    "STNM": "马尾镇",
+                    "LGTD": 119.397221363,
+                    "LTTD": 26.0250010654,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.397221363,
+                    "y": 26.0250010654
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 33,
+                    "STCD": "350105020011",
+                    "STNM": "凤窝村",
+                    "LGTD": 119.59583902,
+                    "LTTD": 26.1252742216,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.59583902,
+                    "y": 26.1252742216
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 34,
+                    "STCD": "350105020012",
+                    "STNM": "鼓山",
+                    "LGTD": 119.390277309,
+                    "LTTD": 26.0544448117,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.390277309,
+                    "y": 26.0544448117
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 35,
+                    "STCD": "350105020013",
+                    "STNM": "寿山乡",
+                    "LGTD": 119.27361128,
+                    "LTTD": 26.1889012648,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.27361128,
+                    "y": 26.1889012648
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 36,
+                    "STCD": "350105020014",
+                    "STNM": "宦溪镇",
+                    "LGTD": 119.35278094,
+                    "LTTD": 26.176396794,
+                    "TOTALNUM": 2
+                },
+                "geometry": {
+                    "x": 119.35278094,
+                    "y": 26.176396794
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 37,
+                    "STCD": "350105020016",
+                    "STNM": "北岭村",
+                    "LGTD": 119.330557822,
+                    "LTTD": 26.1755650613,
+                    "TOTALNUM": 40.1
+                },
+                "geometry": {
+                    "x": 119.330557822,
+                    "y": 26.1755650613
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 38,
+                    "STCD": "350105020017",
+                    "STNM": "鼓岭",
+                    "LGTD": 119.391390165,
+                    "LTTD": 26.1033357461,
+                    "TOTALNUM": 40
+                },
+                "geometry": {
+                    "x": 119.391390165,
+                    "y": 26.1033357461
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 39,
+                    "STCD": "350105020018",
+                    "STNM": "吾洋村",
+                    "LGTD": 119.228886591,
+                    "LTTD": 26.1941802862,
+                    "TOTALNUM": 10
+                },
+                "geometry": {
+                    "x": 119.228886591,
+                    "y": 26.1941802862
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 40,
+                    "STCD": "350105020019",
+                    "STNM": "创新村",
+                    "LGTD": 119.388337125,
+                    "LTTD": 26.1583376507,
+                    "TOTALNUM": 10.4
+                },
+                "geometry": {
+                    "x": 119.388337125,
+                    "y": 26.1583376507
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 41,
+                    "STCD": "350105020020",
+                    "STNM": "峨嵋村",
+                    "LGTD": 119.333618311,
+                    "LTTD": 26.2552888192,
+                    "TOTALNUM": 2.5
+                },
+                "geometry": {
+                    "x": 119.333618311,
+                    "y": 26.2552888192
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 42,
+                    "STCD": "350105020021",
+                    "STNM": "溪下村",
+                    "LGTD": 119.295558464,
+                    "LTTD": 26.2161238894,
+                    "TOTALNUM": 10.2
+                },
+                "geometry": {
+                    "x": 119.295558464,
+                    "y": 26.2161238894
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 43,
+                    "STCD": "350105020024",
+                    "STNM": "优山村",
+                    "LGTD": 119.220555931,
+                    "LTTD": 26.2447391365,
+                    "TOTALNUM": 10.7
+                },
+                "geometry": {
+                    "x": 119.220555931,
+                    "y": 26.2447391365
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 44,
+                    "STCD": "350105020025",
+                    "STNM": "长基村",
+                    "LGTD": 119.223614537,
+                    "LTTD": 26.2833538225,
+                    "TOTALNUM": 27.1
+                },
+                "geometry": {
+                    "x": 119.223614537,
+                    "y": 26.2833538225
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 45,
+                    "STCD": "350105020026",
+                    "STNM": "东坪村",
+                    "LGTD": 119.319457287,
+                    "LTTD": 26.3344609769,
+                    "TOTALNUM": 0.4
+                },
+                "geometry": {
+                    "x": 119.319457287,
+                    "y": 26.3344609769
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 46,
+                    "STCD": "350105020027",
+                    "STNM": "万洋村",
+                    "LGTD": 119.222229051,
+                    "LTTD": 26.3280794945,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.222229051,
+                    "y": 26.3280794945
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 47,
+                    "STCD": "350105020029",
+                    "STNM": "汶石村",
+                    "LGTD": 119.185281371,
+                    "LTTD": 26.3172460823,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.185281371,
+                    "y": 26.3172460823
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 48,
+                    "STCD": "350105020031",
+                    "STNM": "闽江学院",
+                    "LGTD": 119.163876566,
+                    "LTTD": 26.064729254,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.163876566,
+                    "y": 26.064729254
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 49,
+                    "STCD": "350111020001",
+                    "STNM": "福州市气象台",
+                    "LGTD": 119.342498637,
+                    "LTTD": 26.0813930386,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.342498637,
+                    "y": 26.0813930386
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 50,
+                    "STCD": "350111020003",
+                    "STNM": "八一水库",
+                    "LGTD": 119.288887525,
+                    "LTTD": 26.1463975363,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.288887525,
+                    "y": 26.1463975363
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 51,
+                    "STCD": "350111020004",
+                    "STNM": "岳峰镇",
+                    "LGTD": 119.323609363,
+                    "LTTD": 26.0927822301,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.323609363,
+                    "y": 26.0927822301
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 52,
+                    "STCD": "350111020005",
+                    "STNM": "晋安体育馆",
+                    "LGTD": 119.344721463,
+                    "LTTD": 26.0988931983,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.344721463,
+                    "y": 26.0988931983
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 53,
+                    "STCD": "350111020007",
+                    "STNM": "农科所",
+                    "LGTD": 119.333611586,
+                    "LTTD": 26.1319509474,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.333611586,
+                    "y": 26.1319509474
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 54,
+                    "STCD": "350111020008",
+                    "STNM": "琴亭湖",
+                    "LGTD": 119.302776364,
+                    "LTTD": 26.1261170143,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.302776364,
+                    "y": 26.1261170143
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 55,
+                    "STCD": "350111020009",
+                    "STNM": "汽车北站",
+                    "LGTD": 119.31444297,
+                    "LTTD": 26.1122269782,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.31444297,
+                    "y": 26.1122269782
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 56,
+                    "STCD": "350111020010",
+                    "STNM": "秀山中学",
+                    "LGTD": 119.323055962,
+                    "LTTD": 26.1452853417,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.323055962,
+                    "y": 26.1452853417
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 57,
+                    "STCD": "350111020011",
+                    "STNM": "埠兴村",
+                    "LGTD": 119.36805483,
+                    "LTTD": 26.0708372819,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.36805483,
+                    "y": 26.0708372819
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 58,
+                    "STCD": "350102020007",
+                    "STNM": "人防办",
+                    "LGTD": 119.290830527,
+                    "LTTD": 26.1066734764,
+                    "TOTALNUM": 50
+                },
+                "geometry": {
+                    "x": 119.290830527,
+                    "y": 26.1066734764
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 59,
+                    "STCD": "350104020007",
+                    "STNM": "建新镇",
+                    "LGTD": 119.23360372,
+                    "LTTD": 26.0697295064,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.23360372,
+                    "y": 26.0697295064
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 60,
+                    "STCD": "350102020008",
+                    "STNM": "怡山社区",
+                    "LGTD": 119.258883197,
+                    "LTTD": 26.0761178473,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.258883197,
+                    "y": 26.0761178473
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 61,
+                    "STCD": "350104020005",
+                    "STNM": "冯宅村",
+                    "LGTD": 119.25804844,
+                    "LTTD": 26.0288922111,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.25804844,
+                    "y": 26.0288922111
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 62,
+                    "STCD": "350104020014",
+                    "STNM": "金山公园",
+                    "LGTD": 119.24388129,
+                    "LTTD": 26.0469485556,
+                    "TOTALNUM": 30
+                },
+                "geometry": {
+                    "x": 119.24388129,
+                    "y": 26.0469485556
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 63,
+                    "STCD": "350104020016",
+                    "STNM": "卢滨路",
+                    "LGTD": 119.251937484,
+                    "LTTD": 26.0463927631,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.251937484,
+                    "y": 26.0463927631
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 64,
+                    "STCD": "350105020003",
+                    "STNM": "琅岐镇",
+                    "LGTD": 119.636948128,
+                    "LTTD": 26.0791614259,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.636948128,
+                    "y": 26.0791614259
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 65,
+                    "STCD": "350105020009",
+                    "STNM": "康坂村",
+                    "LGTD": 119.473058309,
+                    "LTTD": 26.0727785427,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.473058309,
+                    "y": 26.0727785427
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 66,
+                    "STCD": "350105020015",
+                    "STNM": "日溪乡",
+                    "LGTD": 119.273067406,
+                    "LTTD": 26.3514103512,
+                    "TOTALNUM": 1.8
+                },
+                "geometry": {
+                    "x": 119.273067406,
+                    "y": 26.3514103512
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 67,
+                    "STCD": "350105020022",
+                    "STNM": "鹅鼻村",
+                    "LGTD": 119.367502619,
+                    "LTTD": 26.1519509825,
+                    "TOTALNUM": 1.4
+                },
+                "geometry": {
+                    "x": 119.367502619,
+                    "y": 26.1519509825
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 68,
+                    "STCD": "350105020030",
+                    "STNM": "梓山村",
+                    "LGTD": 119.272237866,
+                    "LTTD": 26.3905788271,
+                    "TOTALNUM": 9.8
+                },
+                "geometry": {
+                    "x": 119.272237866,
+                    "y": 26.3905788271
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 69,
+                    "STCD": "350111020006",
+                    "STNM": "叶洋村",
+                    "LGTD": 119.264720613,
+                    "LTTD": 26.1688996239,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.264720613,
+                    "y": 26.1688996239
+                }
+            }, {
+                "attributes": {
+                    "OBJECTID": 70,
+                    "STCD": "350102020006",
+                    "STNM": "华大街道",
+                    "LGTD": 119.300553291,
+                    "LTTD": 26.1125064658,
+                    "TOTALNUM": 0
+                },
+                "geometry": {
+                    "x": 119.300553291,
+                    "y": 26.1125064658
+                }
+            }
+            ],
+            "displayFieldName": "",
+            "maxtotal": 27.1,
+            "spatialReference": {
+                "latestWkid": 4490,
+                "wkid": 4490
+            },
+            "fields": [{
+                "name": "OBJECTID",
+                "alias": "OBJECTID",
+                "type": "esriFieldTypeOID"
+            }, {
+                "name": "STCD",
+                "alias": "STCD",
+                "type": "esriFieldTypeDouble"
+            }, {
+                "name": "STNM",
+                "length": 254,
+                "alias": "STNM",
+                "type": "esriFieldTypeString"
+            }, {
+                "name": "LGTD",
+                "alias": "LGTD",
+                "type": "esriFieldTypeDouble"
+            }, {
+                "name": "LTTD",
+                "alias": "LTTD",
+                "type": "esriFieldTypeDouble"
+            }, {
+                "name": "TOTALNUM",
+                "alias": "LTTD",
+                "type": "esriFieldTypeDouble"
+            }
+            ],
+            "fieldAliases": {
+                "OBJECTID": "OBJECTID",
+                "STCD": "STCD",
+                "STNM": "STNM",
+                "LGTD": "LGTD",
+                "LTTD": "LTTD",
+                "TOTALNUM": "TOTALNUM"
+            },
+            "geometryType": "esriGeometryPoint"
+        }
+        // //通过radio标签的value值来选择显示图曾
+        // $(".input[type='radio']").click(function(){
+        //     var a = $(this).val();//value属性值
+        //     dist.setVisibleLayers([a])
+        // })
+
+        require([
+                "esri/map",
+                "esri/request",
+                "esri/layers/ArcGISDynamicMapServiceLayer",
+
+                "dojo/dom", "dojo/on",
+                "esri/symbols/SimpleMarkerSymbol",
+                "esri/symbols/SimpleLineSymbol",
+                "esri/symbols/SimpleFillSymbol",
+                "esri/toolbars/draw",
+                "esri/graphic",
+                "esri/tasks/GeometryService",
+                "esri/tasks/BufferParameters",
+                //"dojo/colors",
+                "dojo/domReady!",
+                "esri/layers/FeatureLayer",
+
+                "dijit/Menu",
+                "dijit/MenuItem",
+                "dijit/MenuSeparator",
+
+                "esri/config",
+                "esri/InfoTemplate",
+                "esri/request",
+                "esri/geometry/scaleUtils",
+                "esri/layers/FeatureLayer",
+                "esri/renderers/SimpleRenderer",
+                "esri/symbols/PictureMarkerSymbol",
+                "esri/symbols/SimpleFillSymbol",
+                "esri/symbols/SimpleLineSymbol",
+                "dojo/dom",
+                "dojo/json",
+                "dojo/on",
+                "dojo/parser",
+                "dojo/sniff",
+                "dojo/_base/array",
+                "esri/Color",
+                "dojo/_base/lang",
+                "dijit/layout/BorderContainer",
+                "dijit/layout/ContentPane",
+                "dojo/domReady!"
+            ],
+            function (
+                Map, request,ArcGISDynamicMapServiceLayer,dom, on, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, Draw, Graphic, GeometryService, BufferParameters, Color,FeatureLayer
+                ,Menu, MenuItem, MenuSeparator,esriConfig, InfoTemplate,  request, scaleUtils, FeatureLayer,
+                SimpleRenderer, PictureMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol,
+                dom, JSON, on, parser, sniff, arrayUtils, Color, lang
+            )
+            {
+
+                var portalUrl = "http://www.arcgis.com";//定义门户路径
+
+                // map = new Map("map", {
+                //     center: [113, 22.5],
+                //     zoom: 5,
+                //     //basemap: "gray",
+                //     slider: false
+                // });北京坐标
+
+                var startExtent = new esri.geometry.Extent(109, 20, 118, 25, new esri.SpatialReference({wkid:4326}) );
+
+                var map = new esri.Map("map", {extent:esri.geometry.geographicToWebMercator(startExtent)});
+
+                var tiledMapServiceLayer = new esri.layers.ArcGISTiledMapServiceLayer("http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer");
+                map.addLayer(tiledMapServiceLayer);
+
+               //var map = new esri.Map("mright");
+
+                //var dists=new ArcGISTiledMapServiceLayer("http://120.36.9.138:6080/arcgis/rest/services/GP_ZHANG/gdm/MapServer/");
+
+                var dist=new ArcGISDynamicMapServiceLayer("https://localhost:6443/arcgis/rest/services/GPzhang/%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE/MapServer"); //初始化图层
+                dist.setVisibleLayers([-1]) //表示初始化所有图层都不显示
+                map.addLayer(dist) //添加图层到地图
+
+
+
+                // var dist=new ArcGISDynamicMapServiceLayer("http://120.36.9.138:6080/arcgis/rest/services/GP_ZHANG/gdm/MapServer/"); //初始化图层
+                // // dist.setVisibleLayers()
+                // // dist.setVisibleLayers([-1]) //表示初始化所有图层都不显示
+                // map.addLayer(dist)
+                // console.log(dist)
+                // //map.selectNodes()
+                // myMap.addLayer(dist)
+
+                var geometryServices = new GeometryService("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
+                //创建缓存参数对象
+                var params = new BufferParameters();
+                //创建toolbar绘图工具
+                var toolBar = new Draw(map);
+                //创建点符号
+                var pointSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 12, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([0, 0, 255]), 2), new Color("#00FF00"));
+                //创建线符号
+                var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([0, 0, 255]), 3);
+                //创建面符号
+                var polygonSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([0, 0, 255]), 3), new Color([0, 255, 0, 0.6]));
+                var bufferSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([255, 0, 0]), 3), new Color([0, 255, 255, 0.4]));
+                //给按钮绑定click事件，用来绘制点、线、面
+                on(dom.byId("btnPoint"), "click", funDrawPoint);
+                function funDrawPoint()
+                {
+                    toolBar.activate(Draw.POINT, { showTooltips: true });
+                }
+                on(dom.byId("btnLine"), "click", funDrawLine);
+                function funDrawLine()
+                {
+                    toolBar.activate(Draw.POLYLINE, { showTooltips: true });
+                }
+                on(dom.byId("btnPolygon"), "click", funDrawPolygon);
+                function funDrawPolygon()
+                {
+                    toolBar.activate(Draw.POLYGON, { showTooltips: true });
+                }
+                //绘图结束绑定事件
+                on(toolBar, "draw-end", funDrawEnd);
+                function funDrawEnd(result)
+                {
+                    //获得绘制的形状
+                    var geometry = result.geometry;
+                    //创建Graphic
+                    var graphic;
+                    //根据graphic类型设置符号
+                    if (geometry.type == "point")
+                    {
+                        graphic = new Graphic(geometry, pointSymbol);
+                    }
+                    else if (geometry.type == "polyline")
+                    {
+                        graphic = new Graphic(geometry, lineSymbol);
+                    }
+                    else if (geometry.type == "polygon")
+                    {
+                        graphic = new Graphic(geometry, polygonSymbol);
+                    }
+                    //添加绘制的图形到地图
+                    map.graphics.add(graphic);
+                    //关闭绘图工具
+                    toolBar.deactivate();
+                    //构建缓冲区分析的形状属性
+                    params.geometries = [geometry];
+                    //构建缓冲距离
+                    params.distances = ["15", "18"];
+                    //空间参考
+                    params.bufferSpatialReference = map.spatialReference;
+                    params.outSpatialReference = map.spatialReference;
+                    //执行缓冲区分析
+                    geometryServices.buffer(params, funResult);
+                    //处理缓冲区分析得到的结果
+                    function funResult(result)
+                    {
+                        //将每一个缓冲结果添加到地图
+                        for (var i = 0; i < result.length; i++)
+                        {
+                            var graphic = new Graphic(result[i], bufferSymbol)
+                            map.graphics.add(graphic)
+                        }
+                    }
+                }
+
+
+                //通过radio标签的value值来选择显示图曾
+                $("input[type='radio']").click(function(){
+                    var a = $(this).val();
+                    dist.setVisibleLayers([a])
+                    // if (a=1){
+                    //     map.graphics.remove(graphic);}
+                })
+
+                // createGraphicsMenu();
+                //
+                // //创建右键菜单
+                // function createGraphicsMenu() {
+                //     ctxMenuForGraphics = new Menu({});
+                //
+                //     ctxMenuForGraphics.addChild(new MenuItem({
+                //         label: "删除",
+                //         onClick: function () {
+                //             gl.remove(selected)
+                //         }
+                //     }));
+                //
+                //     //当鼠标在gl图层的图形上方时绑定该图形的点击事件
+                //     gl.on("mouse-over", function(evt) {
+                //         selected = evt.graphic;
+                //         ctxMenuForGraphics.bindDomNode(evt.graphic.getDojoShape().getNode());
+                //     });
+                //
+                //     //当鼠标移出gl图层的图形上方时取消绑定该图形的点击事件
+                //     gl.on("mouse-out", function(evt) {
+                //         ctxMenuForGraphics.unBindDomNode(evt.graphic.getDojoShape().getNode());
+                //     });
+                // }
+
+                /********************************************************/
+                // map.on("load", initSelectToolbar);
+                //
+                // var fieldsSelectionSymbol =
+                //     new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 10,
+                //         new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+                //             new Color([0, 255, 0]), 1),
+                //         new Color([255, 0, 0, 5]));
+
+                // featureLayer1 = new FeatureLayer("http://120.36.9.138:6080/arcgis/rest/services/GP_ZHANG/gdm/MapServer/5");
+                // map.addLayer(featureLayer1);
+                // featureLayer1.setSelectionSymbol(fieldsSelectionSymbol);
+                //
+                // on(dom.byId("selectFieldsButton"), "click", function () {
+                //     selectionToolbar.activate(Draw.EXTENT);
+                // });
+                //
+                // on(dom.byId("clearSelectionButton"), "click", function () {
+                //     featureLayer1.clearSelection();
+                // });
+                //
+                // function initSelectToolbar(event) {
+                //     selectionToolbar = new Draw(event.map);
+                //     var selectQuery = new Query();
+                //
+                //     on(selectionToolbar, "DrawEnd", function (geometry) {
+                //         selectionToolbar.deactivate();
+                //         selectQuery.geometry = geometry;
+                //         featureLayer1.selectFeatures(selectQuery,
+                //             FeatureLayer.SELECTION_NEW);
+                //     });
+                // }
+                //esriConfig.defaults.io.proxyUrl = "/proxy/";
+
+                on(dom.byId("uploadForm"), "change", function (event) {// 上传事件绑定，change事件
+                    var fileName = event.target.value.toLowerCase();// 转换为小写
+                    //sniff这个模块集()标记基于当前浏览器
+                    if (sniff("ie")) { //在IE中提取文件的完整路径，文件名
+                        var arr = fileName.split("\\");//"\"分组
+                        fileName = arr[arr.length - 1];//获取文件名
+                    }
+                    if (fileName.indexOf(".zip") !== -1) {//判断是否为.zip文件，如果是，则添加文件
+                        generateFeatureCollection(fileName);
+                    }
+                    else {//如果不是，提示信息
+                        dom.byId('upload-status').innerHTML = '<p style="color:red">Add shapefile as .zip file</p>';
+                    }
+                });
+                //添加文件
+                function generateFeatureCollection(fileName) {
+                    var name = fileName.split(".");//根据“.”分组
+                    //如果是路径 c:\fakepath  - 需要移除
+                    //看到这个链接以获得更多信息: http://davidwalsh.name/fakepath
+                    name = name[0].replace("c:\\fakepath\\", "");
+
+                    dom.byId('upload-status').innerHTML = '<b>加载… </b>' + name; //加载提示信息
+
+                    //定义输入参数生成有关详细信息,请参阅文档其余部分
+                    //http://www.arcgis.com/apidocs/rest/index.html?generate.html
+                    var params = {
+                        'name': name,
+                        'targetSR': map.spatialReference,
+                        'maxRecordCount': 1000,//最大综合
+                        'enforceInputFileSizeLimit': true,//执行输入文件大小限制
+                        'enforceOutputJsonSizeLimit': true//执行Json输出大小限制
+                    };
+
+                    //generalize features for display Here we generalize at 1:40,000 which is approx 10 meters
+                    //当使用web墨卡托这应该工作得很好
+                    var extent = scaleUtils.getExtentForScale(map, 40000);//获取地图范围
+                    var resolution = extent.getWidth() / map.width;// 获取分辨率
+                    params.generalize = true;//概括
+                    params.maxAllowableOffset = resolution;//分辨率
+                    params.reducePrecision = true; //精度
+                    params.numberOfDigitsAfterDecimal = 0;//小数点后的位数
+
+                    var myContent = {
+                        'filetype': 'shapefile',//文件类型为shp文件
+                        'publishParameters': JSON.stringify(params),//返回一个JSON对象的序列化。
+                        'f': 'json',//格式为json
+                        'callback.html': 'textarea'
+                    };
+
+                    //使用其余的生成操作来生成一个压缩shapefile功能集合
+                    //发送一个请求使用默认当前平台。
+                    request({
+                        url: portalUrl + '/sharing/rest/content/features/generate',//生产操作功能
+                        content: myContent,
+                        form: dom.byId('uploadForm'),
+                        handleAs: 'json',
+                        load: lang.hitch(this, function (response) {//返回一个函数,它只会在给定的范围内执行
+                            if (response.error) {
+                                errorHandler(response.error);
+                                return;
+                            }
+                            var layerName = response.featureCollection.layers[0].layerDefinition.name;//图层名称
+                            dom.byId('upload-status').innerHTML = '<b>Loaded: </b>' + layerName;//显示
+                            addShapefileToMap(response.featureCollection);//加载文件
+                        }),
+                        error: lang.hitch(this, errorHandler)
+                    });
+                }
+                //错误信息
+                function errorHandler(error) {
+                    dom.byId('upload-status').innerHTML =
+                        "<p style='color:red'>" + error.message + "</p>";
+                }
+                //添加文件
+                function addShapefileToMap(featureCollection) {
+                    //add the shapefile to the map and zoom to the feature collection extent
+                    //If you want to persist the feature collection when you reload browser you could store the collection in
+                    //local storage by serializing the layer using featureLayer.toJson()  see the 'Feature Collection in Local Storage' sample
+                    //for an example of how to work with local storage.
+                    var fullExtent;// 展开范围
+                    var layers = [];//图层数组
+                    arrayUtils.forEach(featureCollection.layers, function (layer) {//遍历图层
+                        var infoTemplate = new InfoTemplate("Details", "${*}");//设置信息模板，显示所有内容
+                        var featureLayer = new FeatureLayer(layer, {
+                            infoTemplate: infoTemplate
+                        });//定义返回结果为featureLayer
+                        //绑定单机时间，显示项目信息
+                        featureLayer.on('click', function (event) {
+                            map.infoWindow.setFeatures([event.graphic]);
+                        });
+                        //change default symbol if desired. Comment this out and the layer will draw with the default symbology
+                        changeRenderer(featureLayer);//改变图层渲染
+                        fullExtent = fullExtent ?
+                            fullExtent.union(featureLayer.fullExtent) : featureLayer.fullExtent;
+                        layers.push(featureLayer);// featureLayer添加到图层数组
+                    });
+                    map.addLayers(layers);//添加到地图
+                    map.setExtent(fullExtent.expand(1.25), true);//定位到新添加地图范围
+
+                    dom.byId('upload-status').innerHTML = "";
+                }
+
+                function changeRenderer(layer) {
+                    //改变默认的符号特征多边形和集合点
+                    var symbol = null;
+                    switch (layer.geometryType) {
+                        case 'esriGeometryPoint':
+                            symbol = new PictureMarkerSymbol({
+                                'angle': 0,
+                                'xoffset': 0,
+                                'yoffset': 0,
+                                'type': 'esriPMS',
+                                'url': 'http://static.arcgis.com/images/Symbols/Shapes/BluePin1LargeB.png',
+                                'contentType': 'image/png',
+                                'width': 20,
+                                'height': 20
+                            });
+                            break;
+                        case 'esriGeometryPolygon':
+                            symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
+                                new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+                                    new Color([112, 112, 112]), 1), new Color([136, 136, 136, 0.25]));
+                            break;
+                    }
+                    if (symbol) {
+                        layer.setRenderer(new SimpleRenderer(symbol));//设置渲染适配器
+                    }
+                }
+
+            }) ;
+        //添加图层到地图
+    </script>
+
+</head>
+<body>
+
+<div id="main" style="width:100%;">
+
+    <div id="left" style="width:25%;float:left;">
+        <title>图层</title>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="jym" value="-1" checked="" />背景图层</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="1" />雨量站分布</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="2" />采集的城市情绪值</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="6" />行政区划</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="7" />山竹台风广东情绪插值</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="8" />情绪空间插值</label>
+        </div>
+        <hr />
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="idw" value="9" />降雨量插值</label>
+        </div>
+        <hr />
+        <div class="DivClass">
+            <input id="btnPoint" type="button" value="点缓冲区" />
+            <input id="btnLine" type="button" value="线缓冲区" />
+            <input id="btnPolygon" type="button" value="面缓冲区" />
+        </div>
+        <hr />
+        <div style='padding-left:4px;'>
+            <p>
+                加载shpflie转为geojson至地图</p>
+<!--            <p>Visit the-->
+<!--            <a target='_blank' href="http://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm">Shapefiles</a> help topic for information and limitations.</p>-->
+            <form enctype="multipart/form-data" method="post" id="uploadForm">
+                <div class="field">
+                    <label class="file-upload">
+                        <span><strong>加载文件</strong></span>
+                        <input type="file" name="file" id="inFile" />
+                    </label>
+                </div>
+            </form>
+            <span class="file-upload-status" style="opacity:1;" id="upload-status"></span>
+            <div id="fileInfo">&nbsp;</div>
+        </div>
+
+
+    </div>
+
+    <div id="right" style="width:75%;float:left;">
+        <div id="map" style="width:1140px; height:700px; border:1px solid #000;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
