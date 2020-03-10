@@ -14,7 +14,7 @@
 		 }
 	],
 	"dependencies": {
-		"dojo" : "1.8",
+		"dojo" : "1.16",
 		"dijit" : "1.8"
 	},
 	"keywords": [ "Checkbox", "CheckboxTree", "Dijit", "Dojo", "FileStore", "Store", "Tree" ],
